@@ -1,0 +1,39 @@
+﻿<Window x:Class="DisAsmApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Width="{Binding ActualWidth, RelativeSource = {RelativeSource AncestorType = {x:Type Window}}}" Height="{Binding ActualHeight, RelativeSource ={RelativeSource AncestorType = {x:Type Window}}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer>
+            <StackPanel>
+                <TextBlock Text="Source"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsChecked="{Binding IsDebug}" Content="Debug"/>
+                    <Button Content="Run" Command="{Binding RunCommand}"/>
+                </StackPanel>
+                
+                <TextBox Text="{Binding SourceCode}" AcceptsReturn="True" AcceptsTab="True"/>
+                <TextBlock Text="{Binding SourceCodeErrors}"/>
+            </StackPanel>
+        </ScrollViewer>
+        <ScrollViewer Grid.Column="1">
+            <StackPanel>
+                <TextBlock Text="MSIL Code"/>
+                <TextBlock Text="{Binding MsilCode}"/>
+            </StackPanel>
+        </ScrollViewer>
+        <ScrollViewer Grid.Column="2">
+            <StackPanel>
+                <TextBlock Text="ASM Code"/>            
+                <TextBlock Text="{Binding AsmCode}"/>                     
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
