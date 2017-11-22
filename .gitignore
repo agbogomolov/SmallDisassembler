@@ -1,0 +1,6 @@
+DisAsmApp/DisAsmApp/bin/*
+DisAsmApp/DisAsmApp/obj/*
+DisAsmApp/DisAsmLib/bin/*
+DisAsmApp/DisAsmLib/obj/*
+DisAsmApp/packages/*
+DisAsmApp/.vs/*
