@@ -101,10 +101,12 @@ namespace DisAsmLib
 
 		private string ReadAsmCode(IntPtr intPtr, uint size)
 		{
+			var architecture = sizeof(IntPtr) == 4 ? ArchitectureMode.x86_32 : ArchitectureMode.x86_64;
+
 			var disasm = new SharpDisasm.Disassembler(
 				intPtr,
 				(int)size,
-				ArchitectureMode.x86_64,
+				architecture,
 				0,
 				true);
 			var sb = new StringBuilder();
